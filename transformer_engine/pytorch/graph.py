@@ -417,7 +417,7 @@ def _make_graphed_callables(
                     # If the module's training-or-eval state matches what we graphed,
                     # run the graph, otherwise run the original forward method
                     if func.training == graph_training_state:
-                        if include_weights:
+                        if True:
                             # Set the FP8 group from global amax reduction.
                             for m in func.modules():
                                 if (isinstance(m, TransformerEngineBaseModule)
