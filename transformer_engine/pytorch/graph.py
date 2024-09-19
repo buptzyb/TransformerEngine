@@ -245,7 +245,7 @@ def _make_graphed_callables(
                             reuse_per_callable_fwd_idx = per_callable_fwd_idx_recorder[reuse_fwd_idx*num_layers + l_no]
                             if reuse_graph_inputs:
                                 sample_args[per_callable_fwd_idx] = sample_args[reuse_per_callable_fwd_idx]
-                                per_callable_static_input_surfaces[per_callable_fwd_idx] = per_callable_static_input_surfaces[reuse_per_callable_fwd_idx][:len(flatten_sample_args[i])] + per_callable_static_input_surfaces[per_callable_fwd_idx][len(flatten_sample_args[i]):]
+                                per_callable_static_input_surfaces[per_callable_fwd_idx] = per_callable_static_input_surfaces[reuse_per_callable_fwd_idx][:len(flatten_sample_args[reuse_per_callable_fwd_idx])] + per_callable_static_input_surfaces[per_callable_fwd_idx][len(flatten_sample_args[per_callable_fwd_idx]):]
                             if reuse_graph_outputs:
                                 static_outputs = per_callable_static_outputs[reuse_per_callable_fwd_idx]
                                 detached_static_outputs = tuple(so.detach() for so in static_outputs)
